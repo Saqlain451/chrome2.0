@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 // create context ----->
 const appContext = React.createContext();
@@ -6,8 +6,14 @@ const appContext = React.createContext();
 // create provide ------>
 
 const AppProvider = ({children})=>{
+
+    const [isShowForm, setIsShowForm] = useState(false)
+    const changeShow = ()=>{
+        setIsShowForm(true)
+    }
+
     return(
-        <appContext.Provider value={"saqalin"}>
+        <appContext.Provider value={{isShowForm,changeShow,setIsShowForm}}>
                 {children}
         </appContext.Provider>
     )
