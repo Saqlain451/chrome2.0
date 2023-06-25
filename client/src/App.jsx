@@ -1,4 +1,5 @@
 import React from 'react'
+import {ToastContainer} from 'react-toastify'
 import Header from './pages/Header'
 import Search from './pages/Search'
 import Result from './pages/Result'
@@ -8,6 +9,7 @@ const App = () => {
       <Header/>
       <Search/>
       <Result/>
+      <ToastContainer/>
    </>
   )
 }
