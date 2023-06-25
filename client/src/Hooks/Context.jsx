@@ -75,6 +75,57 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  // --------------- try to implement update function -------------->
+
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [updateId, setUpdateId] = useState("");
+  const [updateData, setUpdateData] = useState({
+    name: "",
+    link: "",
+    type: "",
+    icon: "",
+  })
+
+  const editBookmark = (id)=>{
+    setUpdateId(id);
+    setIsShowForm(true)
+    setIsUpdate(true)
+  }
+
+  const changeUpdateHandler = (e)=>{
+    const {name, value} = e.target;
+    setUpdateData({...updateData,[name] : value});
+  }
+
+
+  const updateHandler = async (e)=>{
+    e.preventDefault();
+    try {
+      const res = await fetch(`${api}/bookmark/${updateId}`,{
+        method : "PATCH",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(updateData)
+      })
+      const data = await res.json();
+      data.msg
+        ? toast.success(res.msg, {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "dark",
+          })
+        : toast.error(res.err, {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "dark",
+          });
+    } catch (error) {
+      console.log(error);
+    }
+    setIsShowForm(false)
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -88,7 +139,13 @@ const AppProvider = ({ children }) => {
         getApiData,
         setAllBookmarkData,
         allBookmarkData,
-        submitHandler
+        submitHandler,
+        isUpdate,
+        setIsUpdate,
+        updateData,
+        changeUpdateHandler, 
+        editBookmark,
+        updateHandler
       }}
     >
       {children}

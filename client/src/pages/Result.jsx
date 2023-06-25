@@ -10,6 +10,7 @@ const Result = () => {
     setAllBookmarkData,
     allBookmarkData,
     submitHandler,
+    editBookmark
   } = useGlobalHook();
 
 
@@ -34,6 +35,10 @@ const Result = () => {
       console.error('Error:', error);
     }
   };
+
+  
+
+
   useEffect(() => {
     getApiData(`${api}/bookmarks`, setAllBookmarkData);
   }, [submitHandler]);
@@ -50,6 +55,7 @@ const Result = () => {
               icon={icon}
               id={_id}
               deleteBookmrk={deleteBookmrk}
+              editBookmark = {editBookmark}
             />
           );
         })}

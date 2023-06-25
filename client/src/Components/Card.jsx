@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ name, link, icon,id,deleteBookmrk}) => {
+const Card = ({ name, link, icon,id,deleteBookmrk,editBookmark}) => {
   return (
     <div className="bookmark">
       <a href={link}>
@@ -8,8 +8,8 @@ const Card = ({ name, link, icon,id,deleteBookmrk}) => {
         {name}
       </a>
       <div className="icons">
-      <i className="fa-solid fa-pen-to-square"></i>
-      <i class="fa-solid fa-trash-can" onClick={()=>{deleteBookmrk(id)}}></i>
+      <i className="fa-solid fa-pen-to-square" onClick={()=>{editBookmark(id)}}></i>
+      <i className="fa-solid fa-trash-can" onClick={()=>{deleteBookmrk(id)}}></i>
       </div>
     </div>
   );
