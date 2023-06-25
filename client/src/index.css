@@ -146,7 +146,7 @@ form .search {
   border-radius: 1rem;
   background-color: #0a0a0a;
   box-shadow: 5px 5px 10px #000000, -5px -5px 10px #171818;
-  width: 35%;
+  width: 30%;
   height: auto;
   padding: 3% 2%;
   display: flex;
@@ -163,11 +163,22 @@ form .search {
   width: 100%;
   height: 3.8rem;
   background: transparent;
-  border: 2px solid rgb(0, 255, 200);
+  border: 2px solid #3700ff;
   border-radius: .5rem;
   outline: none;
-  color: #00ff75;
+  color: rgb(0, 255, 200);
   padding: 0 1rem;
+}
+
+.form-modal h1{
+  font-size: 3rem;
+  text-transform: capitalize;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  font-size: 3rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.1em;
 }
 
 .form-wrapper{
@@ -176,6 +187,23 @@ form .search {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #0a0a0ae4;
+  background-color: #0a0a0aef;
+}
+
+.form-modal button{
+  width: 14rem;
+  height: 4rem;
+  background-color: #0a0a0a;
+  border: none;
+  box-shadow: 3px 3px 6px #000000, -3px -3px 6px #171818;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
 }
 

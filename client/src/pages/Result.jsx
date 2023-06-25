@@ -9,8 +9,8 @@ const Result = () => {
     <>
       <div className="bookmarks-wrapper">
         <Card />
-        <button onClick={changeShow}>add</button>
       </div>
+      <button onClick={changeShow}>add</button>
       {isShowForm && <AddForm />}
       
     </>
