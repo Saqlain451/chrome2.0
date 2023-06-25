@@ -1,6 +1,8 @@
 import React from "react";
 
+
 const Card = ({ name, link, icon,id,deleteBookmrk,editBookmark}) => {
+  
   return (
     <div className="bookmark">
       <a href={link}>

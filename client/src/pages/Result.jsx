@@ -10,7 +10,8 @@ const Result = () => {
     setAllBookmarkData,
     allBookmarkData,
     submitHandler,
-    editBookmark
+    editBookmark,
+    isGrid
   } = useGlobalHook();
 
 
@@ -44,7 +45,7 @@ const Result = () => {
   }, [submitHandler]);
   return (
     <>
-      <div className="bookmarks-wrapper">
+      <div className= {isGrid?"bookmark-grid-view" : "bookmarks-wrapper"}>
         {allBookmarkData && allBookmarkData.map((bookmarks) => {
           const { _id, name, link, icon } = bookmarks;
           return (

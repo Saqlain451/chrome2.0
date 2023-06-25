@@ -109,13 +109,14 @@ const AppProvider = ({ children }) => {
         body : JSON.stringify(updateData)
       })
       const data = await res.json();
+      console.log(data.msg)
       data.msg
-        ? toast.success(res.msg, {
+        ? toast.success(data.msg, {
             position: "top-center",
             autoClose: 2000,
             theme: "dark",
           })
-        : toast.error(res.err, {
+        : toast.error(data.err, {
             position: "top-center",
             autoClose: 2000,
             theme: "dark",
@@ -124,6 +125,12 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
     setIsShowForm(false)
+  }
+
+  // ---------------------
+  const [isGrid, setIsGrid] = useState(false);
+  const grid = ()=>{
+    setIsGrid(isGrid?false:true);
   }
 
   return (
@@ -145,7 +152,9 @@ const AppProvider = ({ children }) => {
         updateData,
         changeUpdateHandler, 
         editBookmark,
-        updateHandler
+        updateHandler,
+        isGrid,
+        grid
       }}
     >
       {children}
