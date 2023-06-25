@@ -55,6 +55,26 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const submitHandler = (e)=>{
+    e.preventDefault();
+    postApiData(`${api}/addbookmark`,bookmarkData)
+    setIsShowForm(false)
+}
+
+  // ---------Read all data from api ----->
+
+  const [allBookmarkData, setAllBookmarkData] = useState([]);
+
+  const getApiData = async (url,setFunc)=>{
+    try {
+      const data = await fetch(url);
+      const res = await data.json();
+      setFunc(res.success);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -65,6 +85,10 @@ const AppProvider = ({ children }) => {
         handleChange,
         postApiData,
         api,
+        getApiData,
+        setAllBookmarkData,
+        allBookmarkData,
+        submitHandler
       }}
     >
       {children}

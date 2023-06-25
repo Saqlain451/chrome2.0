@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Stylish&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Stylish&display=swap");
 
 * {
   padding: 0;
@@ -17,14 +17,14 @@ body {
   margin: 0 10rem;
 }
 
-.logo{
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
 }
 
-.logo i{
+.logo i {
   font-size: 10rem;
 }
 
@@ -33,8 +33,7 @@ form {
   align-items: center;
   grid-template-columns: 50%;
   gap: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin: 1rem 0;
   justify-content: center;
 }
 
@@ -45,15 +44,13 @@ form .search {
   gap: 1.5rem;
 }
 
- .glow{
+.glow {
   text-align: center;
   font-size: 4.5rem;
-  font-family: 'Cedarville Cursive', cursive;
+  font-family: "Cedarville Cursive", cursive;
   color: rgb(0, 255, 200);
-  text-shadow: 0 0 5px rgb(0,140,255),
-  0 0 25px rgb(0,140,255),
-  0 0 50px rgb(0,140,255),
-  0 0 100px rgb(0,140,255);
+  text-shadow: 0 0 5px rgb(0, 140, 255), 0 0 25px rgb(0, 140, 255),
+    0 0 50px rgb(0, 140, 255), 0 0 100px rgb(0, 140, 255);
   font-weight: bold;
   padding: 2rem 0;
 }
@@ -81,13 +78,12 @@ form .search {
   color: rgb(0, 255, 200);
 }
 
-
-.search button{
+.search button {
   width: 5.2rem;
   height: 4.5rem;
   border-radius: 50%;
   background-color: transparent;
-  box-shadow:  5px 5px 10px #000000, -5px -5px 10px #171818;
+  box-shadow: 5px 5px 10px #000000, -5px -5px 10px #171818;
   border: none;
   font-size: 2rem;
   background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
@@ -98,11 +94,10 @@ form .search {
   transition: all 0.3s linear;
 }
 
-.search button:hover{
+.search button:hover {
   box-shadow: none;
-  box-shadow: 0 0 5px rgb(0,140,255),
-  0 0 25px rgb(0,140,255),
-  0 0 50px rgb(0,140,255);
+  box-shadow: 0 0 5px rgb(0, 140, 255), 0 0 25px rgb(0, 140, 255),
+    0 0 50px rgb(0, 140, 255);
 }
 
 .bookmarks-wrapper {
@@ -120,14 +115,21 @@ form .search {
   align-items: center;
   text-transform: capitalize;
   padding: 2rem 3rem;
+  justify-content: space-between;
+}
+
+.bookmark a{
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
   gap: 2rem;
-  font-size: 2.5rem;
   color: rgb(0, 255, 200);
+  font-size: 2.5rem;
   letter-spacing: 0.1rem;
   font-weight: 500;
 }
 
-.bookmark i {
+.bookmark a i {
   background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
   font-size: 3rem;
   background-clip: text;
@@ -142,13 +144,28 @@ form .search {
 }
 
 
-.form-modal{
+.bookmark .icons{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.6rem;
+}
+
+.bookmark .icons i{
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+
+.form-modal {
   border-radius: 1rem;
   background-color: #0a0a0a;
   box-shadow: 5px 5px 10px #000000, -5px -5px 10px #171818;
-  width: 30%;
+  width: 25%;
   height: auto;
-  padding: 3% 2%;
+  padding: 3% 1.5%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,41 +173,55 @@ form .search {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  gap: 0;
+  transition: all 0.3s linear;
+  z-index: 2;
 }
 
-.form-modal input{
+.form-modal label {
+  width: 100%;
+  color: rgba(245, 245, 245, 0.696);
+  display: block;
+  font-size: 1.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.form-modal input {
   width: 100%;
   height: 3.8rem;
   background: transparent;
   border: 2px solid #3700ff;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   outline: none;
   color: rgb(0, 255, 200);
   padding: 0 1rem;
+  margin-top: 0.5rem;
 }
 
-.form-modal h1{
+.form-modal h1 {
   font-size: 3rem;
   text-transform: capitalize;
-  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-  font-size: 3rem;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: 2.8rem;
+  color: rgba(255, 255, 255, 0.833);
   letter-spacing: 0.1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1rem;
 }
 
-.form-wrapper{
+.form-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: #0a0a0aef;
+  z-index: 1;
 }
 
-.form-modal button{
+.form-modal button {
   width: 14rem;
   height: 4rem;
   background-color: #0a0a0a;
@@ -204,6 +235,30 @@ form .search {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.1em;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
+.form-modal:hover {
+  border-top: 4px solid #3700ff;
+}
+
+
+.buttons{
+  background-color: #0a0a0a;
+  box-shadow: 3px 3px 6px #000000, -3px -3px 6px #171818;
+  border: none;
+}
+
+.buttons i{
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+}
