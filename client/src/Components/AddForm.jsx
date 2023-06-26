@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalHook } from "../Hooks/Context";
+import { useNavigate } from "react-router-dom";
 
 const AddForm = () => {
-
+    const navigate = useNavigate()
     const{setIsShowForm,bookmarkData, handleChange,submitHandler,isUpdate,updateData,changeUpdateHandler,updateHandler} = useGlobalHook()
-    
+    useEffect(()=>{
+      if(!localStorage.getItem("user")){
+        navigate("/login");
+      }
+    },[])
   return (
     <>
     <div className="form-wrapper" onClick={()=>{setIsShowForm(false)}}></div>

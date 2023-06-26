@@ -6,9 +6,13 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillLock } from "react-icons/ai";
 
 const Login = () => {
-  const { loginData, loginChangeHandler, loginHanlder } = useGlobalHook();
-const navigate = useNavigate();
-
+  const { loginData, loginChangeHandler, loginHanlder,isLogin } = useGlobalHook();
+  const navigate = useNavigate();
+    if(isLogin){
+        setTimeout(()=>{
+            navigate("/");
+        },2500)
+    }
   useEffect(()=>{
     if(localStorage.getItem("user")){
        navigate("/"); 

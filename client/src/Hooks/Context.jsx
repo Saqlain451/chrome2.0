@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
 
   const api = import.meta.env.VITE_API;
   //   console.log(api)
-
+  const [isLogin, setIslogin] = useState(false);
   const postApiData = async (url, inpData) => {
     try {
       const data = await fetch(url, {
@@ -48,6 +48,7 @@ const AppProvider = ({ children }) => {
         });
         if(res.userDetails){
           localStorage.setItem("user",JSON.stringify({...res.userDetails}))
+          setIslogin(true);
         }
       } else {
         toast.error(res.err, {
@@ -185,6 +186,7 @@ const AppProvider = ({ children }) => {
         loginData,
         loginChangeHandler,
         loginHanlder,
+        isLogin
       }}
     >
       {children}
