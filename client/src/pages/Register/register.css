@@ -1,0 +1,99 @@
+.register-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.signup-card{
+    width: 60%;
+    background-color: #0a0a0a;
+    padding: 3rem;
+    border-radius: 1rem;
+    gap: 2rem;
+    height: auto;
+    box-shadow: 5px 5px 10px #000000, -5px -5px 10px #171818;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-card .form-title{
+    color: white;
+    font-size: 3rem !important;
+    text-align: center;
+}
+
+.signup-card form .icon{
+    color: #1b8e5a ;
+    font-size: 2rem;
+}
+.signup-card form .input-feild{
+    width: 100%;
+    height: 4rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    box-shadow: 2px 2px 4px #000000, -2px -2px 4px #171818;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+}
+
+.signup-card form input{
+    width: 100%;
+    height: 4rem;
+    background-color: #0a0a0a;
+    border: none;
+    outline: none;
+    caret-color: #1b8e5a;
+    color: rgb(0, 255, 200);
+}
+
+.signup-card img{
+    width: 100%;
+    height: auto;
+}
+
+.signup-card form .btns{
+    display: grid;
+    grid-template-columns:repeat(2,1fr) ;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.signup-card form button{
+    width: 100%;
+    height: 3.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    background:#1b8e5a;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-card form button a{
+    color: white;
+}
+
+@media(width<=950px){
+    .signup-card{
+        grid-template-columns: 55% 45%;
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (width<=500px) {
+    .signup-card{
+        width: 100%;
+    }
+    .signup-card form {
+        margin-top: 2rem;
+    }
+    
+}

@@ -166,6 +166,31 @@ const AppProvider = ({ children }) => {
     postApiData(`${api}/login`, { ...loginData });
   };
 
+  // sart register part -------->
+
+  const [registerData, setRegisterData] = useState({
+    name: "",
+    mail: "",
+    pass: "",
+    cpass: "",
+  });
+
+  const regChangeHanler = (e) => {
+    const { name, value } = e.target;
+    setRegisterData({ ...registerData, [name]: value });
+  };
+
+  const regSubHandler = (e) => {
+    e.preventDefault();
+    postApiData(`${api}/register`, registerData);
+    setRegisterData({
+      name: "",
+      mail: "",
+      pass: "",
+      cpass: "",
+    });
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -193,7 +218,9 @@ const AppProvider = ({ children }) => {
         loginData,
         loginChangeHandler,
         loginHanlder,
-        isLogin
+        isLogin,
+        registerData,
+        regChangeHanler,regSubHandler
       }}
     >
       {children}
