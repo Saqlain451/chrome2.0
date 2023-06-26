@@ -1,12 +1,12 @@
 import bookmark from "../model/bookmarkSchema.js";
 
 const createBookmark = async (req, res) => {
-    const { name, link, icon, type } = req.body
-    if (!name || !link || !icon || !type) {
+    const {mail,name, link, icon, type } = req.body
+    if (!mail || !name || !link || !icon || !type) {
         return res.status(501).json({ err: "This feild can not be empty" })
     }
     try {
-        const existName = await bookmark.findOne({ name });
+        const existName = await bookmark.findOne({mail,name });
         const newData = new bookmark({ ...req.body });
         !existName && await newData.save();
         existName ? res.status(501).json({ err: "It is already Added" }) : res.status(201).json({ msg: "Bookmark added" })
@@ -29,9 +29,10 @@ const updateBookmark = async (req, res) => {
 
 
 const getAllData = async (req, res) => {
+    const {mail} = req.params
     try {
 
-        const allData = await bookmark.find({})
+        const allData = await bookmark.find({mail})
         res.status(201).json({ success: allData })
 
     } catch (error) {

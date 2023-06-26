@@ -40,8 +40,10 @@ const Result = () => {
   };
 
   useEffect(() => {
-    getApiData(`${api}/bookmarks`, setAllBookmarkData);
-  }, [submitHandler]);
+    const userDetails = JSON.parse(localStorage.getItem("user"))
+    const mail = userDetails.mail
+    getApiData(`${api}/bookmarks/${mail}`, setAllBookmarkData);
+  }, [allBookmarkData]);
   return (
     <>
       {isLoading ? (

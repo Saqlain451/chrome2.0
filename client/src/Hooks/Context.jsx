@@ -7,6 +7,10 @@ const appContext = React.createContext();
 // create provide ------>
 
 const AppProvider = ({ children }) => {
+
+  const userDet = JSON.parse(localStorage.getItem("user"));
+  // console.log(userDet.mail)
+
   const [isShowForm, setIsShowForm] = useState(false);
   const changeShow = () => {
     setIsShowForm(true);
@@ -64,7 +68,10 @@ const AppProvider = ({ children }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    postApiData(`${api}/addbookmark`, bookmarkData);
+    if(userDet){
+      const mail = userDet.mail;
+      postApiData(`${api}/addbookmark`, {...bookmarkData,mail});
+    }
     setIsShowForm(false);
   };
 
@@ -74,7 +81,7 @@ const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const getApiData = async (url, setFunc) => {
-    setIsError(false);
+    // setIsError(false);
     try {
       const data = await fetch(url);
       const res = await data.json();

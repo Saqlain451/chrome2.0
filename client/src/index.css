@@ -289,4 +289,10 @@ body {
   background-color: transparent;
 }
 
-
+.error{
+  color: orangered;
+  font-size: 2.3rem;
+  padding:10%;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}

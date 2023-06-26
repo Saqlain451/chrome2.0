@@ -10,7 +10,7 @@ bookmarkRouter.post("/addbookmark",createBookmark);
 bookmarkRouter.patch("/bookmark/:id",updateBookmark);
 
 // get all data ----->
-bookmarkRouter.get("/bookmarks",getAllData);
+bookmarkRouter.get("/bookmarks/:mail",getAllData);
 
 // delete any one ----->
 bookmarkRouter.delete("/delete/:id",delData);
