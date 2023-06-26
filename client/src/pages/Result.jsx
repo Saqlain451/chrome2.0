@@ -4,6 +4,7 @@ import { useGlobalHook } from "../Hooks/Context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../Components/Loader/Loader";
+import {useNavigate} from 'react-router-dom'
 const Result = () => {
   const {
     getApiData,
@@ -16,7 +17,7 @@ const Result = () => {
     isLoading,
     isError,
   } = useGlobalHook();
-
+  const navigate = useNavigate()
   const deleteBookmrk = async (id) => {
     try {
       const data = await fetch(`${api}/delete/${id}`, {
@@ -40,9 +41,15 @@ const Result = () => {
   };
 
   useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("user"))
-    const mail = userDetails.mail
-    getApiData(`${api}/bookmarks/${mail}`, setAllBookmarkData);
+    
+    if(localStorage.getItem("user")){
+      const userDetails = JSON.parse(localStorage.getItem("user"))
+      const mail = userDetails.mail
+      getApiData(`${api}/bookmarks/${mail}`, setAllBookmarkData);
+    }else{
+      navigate("/login")
+    }
+    
   }, [allBookmarkData]);
   return (
     <>
