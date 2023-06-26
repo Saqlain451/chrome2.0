@@ -9,10 +9,10 @@ const Button = () => {
   return (
     <>
     <div className="button-wrapper">
-      <button onClick={changeShow} className="btn-add">
+      <button onClick={changeShow} className="btn-add" aria-label="add bookmark">
         <MdAdd/>
       </button>
-      <button className="btn-grid" onClick={grid}>
+      <button className="btn-grid" onClick={grid} aria-label="show different">
        {isGrid? <BsList/> :<BiGridAlt />} 
       </button>
     </div>

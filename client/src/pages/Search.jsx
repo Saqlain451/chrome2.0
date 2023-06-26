@@ -26,9 +26,9 @@ const Search = () => {
                 value={searchVal}
                 onChange={handleChange}
               />
-              <img src="assets/google-voice (2).png" id="voice-icon" />
+              <img src="assets/google-voice (2).png" alt="google voice" id="voice-icon" />
             </div>
-            <button className="search-btn">
+            <button className="search-btn" aria-label="search">
               <i className="fa-solid fa-magnifying-glass" />
             </button>
           </div>
