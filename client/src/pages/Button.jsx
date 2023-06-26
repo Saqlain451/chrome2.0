@@ -3,16 +3,19 @@ import { useGlobalHook } from "../Hooks/Context";
 import AddForm from "../Components/AddForm";
 import { BiGridAlt } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
+import {MdAdd} from 'react-icons/md'
 const Button = () => {
   const { isShowForm, changeShow, isGrid, grid } = useGlobalHook();
   return (
     <>
-      <button onClick={changeShow} className="buttons">
-        <i className="fa-solid fa-plus" title="Add Bookmarks"></i>
+    <div className="button-wrapper">
+      <button onClick={changeShow} className="btn-add">
+        <MdAdd/>
       </button>
       <button className="btn-grid" onClick={grid}>
        {isGrid? <BsList/> :<BiGridAlt />} 
       </button>
+    </div>
       {isShowForm && <AddForm />};
     </>
   );
