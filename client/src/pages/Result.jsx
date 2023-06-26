@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import Card from "../Components/Card";
 import { useGlobalHook } from "../Hooks/Context";
-import {toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../Components/Loader/Loader";
 const Result = () => {
   const {
     getApiData,
@@ -11,15 +12,16 @@ const Result = () => {
     allBookmarkData,
     submitHandler,
     editBookmark,
-    isGrid
+    isGrid,
+    isLoading,
+    isError,
   } = useGlobalHook();
-
 
   const deleteBookmrk = async (id) => {
     try {
-      const data = await fetch(`${api}/delete/${id}`,{
-        method:"DELETE"
-      })
+      const data = await fetch(`${api}/delete/${id}`, {
+        method: "DELETE",
+      });
       const res = await data.json();
       res.msg
         ? toast.success(res.msg, {
@@ -33,34 +35,38 @@ const Result = () => {
             theme: "dark",
           });
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
-
-  
-
 
   useEffect(() => {
     getApiData(`${api}/bookmarks`, setAllBookmarkData);
   }, [submitHandler]);
   return (
     <>
-      <div className= {isGrid?"bookmark-grid-view" : "bookmarks-wrapper"}>
-        {allBookmarkData && allBookmarkData.map((bookmarks) => {
-          const { _id, name, link, icon } = bookmarks;
-          return (
-            <Card
-              key={_id}
-              name={name}
-              link={link}
-              icon={icon}
-              id={_id}
-              deleteBookmrk={deleteBookmrk}
-              editBookmark = {editBookmark}
-            />
-          );
-        })}
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : isError ? (
+        <p className="error">Do not have any bookmark please add it by clicking add button</p>
+      ) : (
+        <div className={isGrid ? "bookmark-grid-view" : "bookmarks-wrapper"}>
+          {allBookmarkData &&
+            allBookmarkData.map((bookmarks) => {
+              const { _id, name, link, icon } = bookmarks;
+              return (
+                <Card
+                  key={_id}
+                  name={name}
+                  link={link}
+                  icon={icon}
+                  id={_id}
+                  deleteBookmrk={deleteBookmrk}
+                  editBookmark={editBookmark}
+                />
+              );
+            })}
+        </div>
+      )}
     </>
   );
 };

@@ -64,12 +64,16 @@ const AppProvider = ({ children }) => {
   // ---------Read all data from api ----->
 
   const [allBookmarkData, setAllBookmarkData] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false)
   const getApiData = async (url,setFunc)=>{
+    setIsError(false)
     try {
       const data = await fetch(url);
       const res = await data.json();
-      setFunc(res.success);
+      res? setIsLoading(false) : setIsLoading(true);
+      res.success.length? 
+      setFunc(res.success) : setIsError(true);
     } catch (error) {
       console.log(error)
     }
@@ -154,7 +158,9 @@ const AppProvider = ({ children }) => {
         editBookmark,
         updateHandler,
         isGrid,
-        grid
+        grid,
+        isLoading,
+        isError
       }}
     >
       {children}

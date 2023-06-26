@@ -39,7 +39,6 @@ const AddForm = () => {
         </label>
         <button>Submit</button>
       </form>}
-     
     </>
   );
 };

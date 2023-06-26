@@ -32,7 +32,7 @@ const getAllData = async (req, res) => {
     try {
 
         const allData = await bookmark.find({})
-        allData.length ? res.status(201).json({ success: allData }) : res.status(501).json({ err: "No data found" })
+        res.status(201).json({ success: allData })
 
     } catch (error) {
         res.status(401).json({ err: "No data Found" })
