@@ -13,25 +13,27 @@ const Search = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="search">
-          <div className="txt-feild">
-            <img src="assets/search.png" alt="search" />
-            <input
-              type="search"
-              name="search"
-              autoComplete="off"
-              placeholder="Search Anything.."
-              value={searchVal}
-              onChange={handleChange}
-            />
-            <img src="assets/google-voice (2).png" id="voice-icon" />
+      <div className="searh-form">
+        <form onSubmit={handleSubmit}>
+          <div className="search">
+            <div className="txt-feild">
+              <img src="assets/search.png" alt="search" />
+              <input
+                type="search"
+                name="search"
+                autoComplete="off"
+                placeholder="Search Anything.."
+                value={searchVal}
+                onChange={handleChange}
+              />
+              <img src="assets/google-voice (2).png" id="voice-icon" />
+            </div>
+            <button className="search-btn">
+              <i className="fa-solid fa-magnifying-glass" />
+            </button>
           </div>
-          <button className="search-btn">
-            <i className="fa-solid fa-magnifying-glass" />
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

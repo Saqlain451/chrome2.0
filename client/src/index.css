@@ -28,7 +28,7 @@ body {
   font-size: 9.5rem;
 }
 
-form {
+.searh-form form {
   display: grid;
   align-items: center;
   grid-template-columns: 50%;
@@ -37,7 +37,7 @@ form {
   justify-content: center;
 }
 
-form .search {
+.searh-form form .search {
   width: 100%;
   display: flex;
   align-items: center;

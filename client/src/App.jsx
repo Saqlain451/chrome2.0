@@ -1,19 +1,20 @@
-import React from 'react'
-import {ToastContainer} from 'react-toastify'
-import Header from './pages/Header'
-import Search from './pages/Search'
-import Result from './pages/Result'
-import Button from './pages/Button'
+import React from "react";
+import Home from "./pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Log/Login";
+import { ToastContainer } from "react-toastify";
 const App = () => {
   return (
-   <>
-      <Header/>
-      <Search/>
-      <Button/>
-      <Result/>
-      <ToastContainer/>
-   </>
-  )
-}
+    <>
+     <BrowserRouter>
+        <Routes>
+          <Route index element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
+        </Routes>
+        <ToastContainer/>
+     </BrowserRouter>
+    </>
+  );
+};
 
-export default App
+export default App;

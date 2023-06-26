@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import {toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // create context ----->
 const appContext = React.createContext();
@@ -39,45 +39,50 @@ const AppProvider = ({ children }) => {
         body: JSON.stringify(inpData),
       });
       const res = await data.json();
-      res.msg
-        ? toast.success(res.msg, {
-            position: "top-center",
-            autoClose: 2000,
-            theme: "dark",
-          })
-        : toast.error(res.err, {
-            position: "top-center",
-            autoClose: 2000,
-            theme: "dark",
-          });
+      console.log(res);
+      if (res.msg) {
+        toast.success(res.msg, {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "dark",
+        });
+        if(res.userDetails){
+          localStorage.setItem("user",JSON.stringify({...res.userDetails}))
+        }
+      } else {
+        toast.error(res.err, {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "dark",
+        });
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const submitHandler = (e)=>{
+  const submitHandler = (e) => {
     e.preventDefault();
-    postApiData(`${api}/addbookmark`,bookmarkData)
-    setIsShowForm(false)
-}
+    postApiData(`${api}/addbookmark`, bookmarkData);
+    setIsShowForm(false);
+  };
 
   // ---------Read all data from api ----->
 
   const [allBookmarkData, setAllBookmarkData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false)
-  const getApiData = async (url,setFunc)=>{
-    setIsError(false)
+  const [isError, setIsError] = useState(false);
+  const getApiData = async (url, setFunc) => {
+    setIsError(false);
     try {
       const data = await fetch(url);
       const res = await data.json();
-      res? setIsLoading(false) : setIsLoading(true);
-      res.success.length? 
-      setFunc(res.success) : setIsError(true);
+      res ? setIsLoading(false) : setIsLoading(true);
+      res.success.length ? setFunc(res.success) : setIsError(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   // --------------- try to implement update function -------------->
 
@@ -88,32 +93,31 @@ const AppProvider = ({ children }) => {
     link: "",
     type: "",
     icon: "",
-  })
+  });
 
-  const editBookmark = (id)=>{
+  const editBookmark = (id) => {
     setUpdateId(id);
-    setIsShowForm(true)
-    setIsUpdate(true)
-  }
+    setIsShowForm(true);
+    setIsUpdate(true);
+  };
 
-  const changeUpdateHandler = (e)=>{
-    const {name, value} = e.target;
-    setUpdateData({...updateData,[name] : value});
-  }
+  const changeUpdateHandler = (e) => {
+    const { name, value } = e.target;
+    setUpdateData({ ...updateData, [name]: value });
+  };
 
-
-  const updateHandler = async (e)=>{
+  const updateHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${api}/bookmark/${updateId}`,{
-        method : "PATCH",
-        headers : {
-          "Content-Type" : "application/json"
+      const res = await fetch(`${api}/bookmark/${updateId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body : JSON.stringify(updateData)
-      })
+        body: JSON.stringify(updateData),
+      });
       const data = await res.json();
-      console.log(data.msg)
+      console.log(data.msg);
       data.msg
         ? toast.success(data.msg, {
             position: "top-center",
@@ -128,14 +132,31 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-    setIsShowForm(false)
-  }
+    setIsShowForm(false);
+  };
 
   // ---------------------
   const [isGrid, setIsGrid] = useState(false);
-  const grid = ()=>{
-    setIsGrid(isGrid?false:true);
-  }
+  const grid = () => {
+    setIsGrid(isGrid ? false : true);
+  };
+
+  // -------- Login part -------->
+
+  const [loginData, setLoginData] = useState({
+    mail: "",
+    pass: "",
+  });
+
+  const loginChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const loginHanlder = (e) => {
+    e.preventDefault();
+    postApiData(`${api}/login`, { ...loginData });
+  };
 
   return (
     <appContext.Provider
@@ -154,13 +175,16 @@ const AppProvider = ({ children }) => {
         isUpdate,
         setIsUpdate,
         updateData,
-        changeUpdateHandler, 
+        changeUpdateHandler,
         editBookmark,
         updateHandler,
         isGrid,
         grid,
         isLoading,
-        isError
+        isError,
+        loginData,
+        loginChangeHandler,
+        loginHanlder,
       }}
     >
       {children}
