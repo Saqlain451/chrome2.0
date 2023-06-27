@@ -258,22 +258,7 @@ option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 2%;
-}
-
-.btn-add {
-  width: 3.5rem;
-  height: 3.5rem;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  box-shadow: 3px 3px 6px #000000, -3px -3px 6px #171818;
-  border-radius: 50%;
-  color: rgb(0, 255, 200);
-  cursor: pointer;
+  margin-top: 1.5%;
 }
 
 .bookmark-grid-view {
@@ -307,4 +292,32 @@ option {
   padding: 10%;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
+}
+
+
+.btn-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.btn-left button{
+  padding: 0.8rem 2rem;
+  background-color:transparent ;
+  box-shadow: 3px 3px 6px #000000, -3px -3px 6px #171818;
+  border: none;
+  font-size: 1.5rem;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-left .active-btn{
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-clip: inherit;
+  -webkit-background-clip: inherit;
+  color: black;
 }

@@ -11,7 +11,6 @@ const Result = () => {
     api,
     setAllBookmarkData,
     allBookmarkData,
-    submitHandler,
     editBookmark,
     isGrid,
     isLoading,
