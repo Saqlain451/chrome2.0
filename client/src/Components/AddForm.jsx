@@ -25,7 +25,14 @@ const AddForm = () => {
         <input type="text" name="icon"  value={updateData.icon} onChange={changeUpdateHandler}/>
         </label>
         <label htmlFor="">Bookmark Category
-        <input type="text" name="type" value={updateData.type} onChange={changeUpdateHandler}/>
+        <select name="type" value={bookmarkData.type} onChange={handleChange}>
+          <option value="">Select Bookmark Category</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Coading Practice">Coading Practice</option>
+          <option value="Code Editor">Code Editor</option>
+          <option value="Ai">Ai</option>
+          <option value="Other">Other</option>
+        </select>
         </label>
         <button>Update</button>
       </form>: <form onSubmit={submitHandler} className="form-modal">
@@ -40,7 +47,14 @@ const AddForm = () => {
         <input type="text" name="icon"  value={bookmarkData.icon} onChange={handleChange}/>
         </label>
         <label htmlFor="">Bookmark Category
-        <input type="text" name="type" value={bookmarkData.type} onChange={handleChange}/>
+        <select name="type" value={bookmarkData.type} onChange={handleChange}>
+          <option value="">Select Bookmark Category</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Coading Practice">Coading Practice</option>
+          <option value="Code Editor">Code Editor</option>
+          <option value="Ai">Ai</option>
+          <option value="Other">Other</option>
+        </select>
         </label>
         <button>Submit</button>
       </form>}

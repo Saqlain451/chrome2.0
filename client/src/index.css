@@ -189,7 +189,8 @@ body {
   letter-spacing: 0.05em;
 }
 
-.form-modal input {
+.form-modal input,
+.form-modal select {
   width: 100%;
   height: 3.8rem;
   background: transparent;
@@ -200,6 +201,17 @@ body {
   padding: 0 1rem;
   margin-top: 0.5rem;
 }
+
+.form-modal select{
+  color: rgba(245, 245, 245, 0.696);
+}
+
+option {
+  background-color: #0a0a0a;
+  color: rgba(245, 245, 245, 0.696);
+  
+}
+
 
 .form-modal h1 {
   font-size: 3rem;
@@ -289,10 +301,10 @@ body {
   background-color: transparent;
 }
 
-.error{
+.error {
   color: orangered;
   font-size: 2.3rem;
-  padding:10%;
+  padding: 10%;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
