@@ -25,11 +25,11 @@ const AddForm = () => {
         <input type="text" name="icon"  value={updateData.icon} onChange={changeUpdateHandler}/>
         </label>
         <label htmlFor="">Bookmark Category
-        <select name="type" value={bookmarkData.type} onChange={handleChange}>
+        <select name="type" value={updateData.type} onChange={changeUpdateHandler}>
           <option value="">Select Bookmark Category</option>
-          <option value="Social Media">Social Media</option>
-          <option value="Coading Practice">Coading Practice</option>
-          <option value="Code Editor">Code Editor</option>
+          <option value="SocialMedia">Social Media</option>
+          <option value="CoadingPractice">Coading Practice</option>
+          <option value="CodeEditor">Code Editor</option>
           <option value="Ai">Ai</option>
           <option value="Other">Other</option>
         </select>
@@ -49,9 +49,9 @@ const AddForm = () => {
         <label htmlFor="">Bookmark Category
         <select name="type" value={bookmarkData.type} onChange={handleChange}>
           <option value="">Select Bookmark Category</option>
-          <option value="Social Media">Social Media</option>
-          <option value="Coading Practice">Coading Practice</option>
-          <option value="Code Editor">Code Editor</option>
+          <option value="SocialMedia">Social Media</option>
+          <option value="CoadingPractice">Coading Practice</option>
+          <option value="CodeEditor">Code Editor</option>
           <option value="Ai">Ai</option>
           <option value="Other">Other</option>
         </select>

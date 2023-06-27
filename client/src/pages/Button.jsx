@@ -4,7 +4,7 @@ import AddForm from "../Components/AddForm";
 import { BiGridAlt } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
 const Button = () => {
-  const { isShowForm, changeShow, isGrid, grid } = useGlobalHook();
+  const { isShowForm, changeShow, isGrid, grid, getApiData, setAllBookmarkData,api } = useGlobalHook();
 
   const [isBtnActive, setIsBtnActive] = useState({
     "Social Media" : true,
@@ -17,6 +17,13 @@ const Button = () => {
   const btnClickHandler = (e)=>{
     const name  = e.target.innerText;
     setIsBtnActive({[name] : true})
+    if(localStorage.getItem("user")){
+      const userDetails = JSON.parse(localStorage.getItem("user"))
+      const mail = userDetails.mail
+      const btnName = name.replace(/\s/g, "");
+      console.log(`${api}/bookmarks/${mail}/${btnName}`)
+      getApiData("https://chrome-vkfx.onrender.com/bookmarks/jobs.sakil.mustak@gmail.com/SocialMedia", setAllBookmarkData)
+  }
   }
 
   return (

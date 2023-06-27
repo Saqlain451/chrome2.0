@@ -6,7 +6,7 @@ const createBookmark = async (req, res) => {
         return res.status(501).json({ err: "This feild can not be empty" })
     }
     try {
-        const existName = await bookmark.findOne({mail,name });
+        const existName = await bookmark.findOne({mail,name,type});
         const newData = new bookmark({ ...req.body });
         !existName && await newData.save();
         existName ? res.status(501).json({ err: "It is already Added" }) : res.status(201).json({ msg: "Bookmark added" })

@@ -81,7 +81,7 @@ const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const getApiData = async (url, setFunc) => {
-    // setIsError(false);
+    setIsError(false);
     try {
       const data = await fetch(url);
       const res = await data.json();
