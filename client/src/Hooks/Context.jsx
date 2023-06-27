@@ -103,8 +103,11 @@ const AppProvider = ({ children }) => {
     icon: "",
   });
 
-  const editBookmark = (id) => {
+  const editBookmark = (id,name,link,icon) => {
     setUpdateId(id);
+    setUpdateData({
+     name,link,icon
+    })
     setIsShowForm(true);
     setIsUpdate(true);
   };
