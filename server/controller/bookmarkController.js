@@ -29,10 +29,10 @@ const updateBookmark = async (req, res) => {
 
 
 const getAllData = async (req, res) => {
-    const {mail} = req.params
+    const {mail,type} = req.params
     try {
 
-        const allData = await bookmark.find({mail})
+        const allData = await bookmark.find({mail,type})
         res.status(201).json({ success: allData })
 
     } catch (error) {
