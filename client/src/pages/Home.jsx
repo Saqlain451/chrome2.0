@@ -9,7 +9,6 @@ const Home = () => {
     <>
       <Header />
       <Search />
-      {/* <Button /> */}
       <Result />
       <ToastContainer />
     </>
