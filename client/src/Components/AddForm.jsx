@@ -28,8 +28,8 @@ const AddForm = () => {
         <select name="type" value={updateData.type} onChange={changeUpdateHandler}>
           <option value="">Select Bookmark Category</option>
           <option value="SocialMedia">Social Media</option>
-          <option value="CoadingPractice">Coading Practice</option>
           <option value="CodeEditor">Code Editor</option>
+          <option value="Deployment">Deployment</option>
           <option value="Ai">Ai</option>
           <option value="Other">Other</option>
         </select>
@@ -50,8 +50,8 @@ const AddForm = () => {
         <select name="type" value={bookmarkData.type} onChange={handleChange}>
           <option value="">Select Bookmark Category</option>
           <option value="SocialMedia">Social Media</option>
-          <option value="CoadingPractice">Coading Practice</option>
           <option value="CodeEditor">Code Editor</option>
+          <option value="Deployment">Deployment</option>
           <option value="Ai">Ai</option>
           <option value="Other">Other</option>
         </select>

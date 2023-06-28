@@ -47,8 +47,8 @@ const Result = () => {
 
   const [isBtnActive, setIsBtnActive] = useState({
     "Social Media": true,
-    "Coading Practice": false,
     "Code Editor": false,
+    Deployment: false,
     Ai: false,
     Other: false,
   });
@@ -91,17 +91,18 @@ const Result = () => {
           >
             Social Media
           </button>
-          <button
-            className={isBtnActive["Coading Practice"] ? "active-btn" : ""}
-            onClick={btnClickHandler}
-          >
-            Coading Practice
-          </button>
+         
           <button
             className={isBtnActive["Code Editor"] ? "active-btn" : ""}
             onClick={btnClickHandler}
           >
             Code Editor
+          </button>
+          <button
+            className={isBtnActive.Deployment? "active-btn" : ""}
+            onClick={btnClickHandler}
+          >
+            Deployment
           </button>
           <button
             className={isBtnActive.Ai ? "active-btn" : ""}

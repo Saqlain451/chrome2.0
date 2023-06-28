@@ -10,10 +10,11 @@ const AppProvider = ({ children }) => {
 
   const userDet = JSON.parse(localStorage.getItem("user"));
   // console.log(userDet.mail)
-
+  const [isUpdate, setIsUpdate] = useState(false);
   const [isShowForm, setIsShowForm] = useState(false);
   const changeShow = () => {
     setIsShowForm(true);
+    setIsUpdate(false);
   };
 
   // add bookmarks ---->
@@ -72,7 +73,14 @@ const AppProvider = ({ children }) => {
       const mail = userDet.mail;
       postApiData(`${api}/addbookmark`, {...bookmarkData,mail});
     }
+    setBookmarkData({
+      name: "",
+      link: "",
+      type: "",
+      icon: "",
+    })
     setIsShowForm(false);
+    
   };
 
   // ---------Read all data from api ----->
@@ -95,7 +103,7 @@ const AppProvider = ({ children }) => {
 
   // --------------- try to implement update function -------------->
 
-  const [isUpdate, setIsUpdate] = useState(false);
+  // const [isUpdate, setIsUpdate] = useState(false);
   const [updateId, setUpdateId] = useState("");
   const [updateData, setUpdateData] = useState({
     name: "",
@@ -129,7 +137,7 @@ const AppProvider = ({ children }) => {
         body: JSON.stringify(updateData),
       });
       const data = await res.json();
-      console.log(data.msg);
+      // console.log(data.msg);
       data.msg
         ? toast.success(data.msg, {
             position: "top-center",
@@ -144,6 +152,13 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+
+    setUpdateData({
+      name: "",
+      link: "",
+      type: "",
+      icon: "",
+    })
     setIsShowForm(false);
   };
 
